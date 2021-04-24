@@ -6,15 +6,8 @@ const initState = {
     비전 : [
         {from: '비전', msg: '안녕하세요. 저는 비전입니다.'},
         {from: '비전', msg: '어떤 것을 도와드릴까요?'}
-    ], 
-    아무개 : [
-        {from: '아무개', msg: '독도는'},
-        {from: '아무개', msg: '우리땅'},
-        {from: '아무개', msg: '우리땅~!'},
-    ]
+    ],
 }
-
-
 function reducer(state, action){
     const {from, msg, topic} = action.payload;
     switch(action.type){
