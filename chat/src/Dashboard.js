@@ -7,6 +7,8 @@ import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { Avatar } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+
 
 import {CTX} from './Store';
 
@@ -17,12 +19,14 @@ const useStyles = makeStyles((theme) => ({
     },
     flex : {
       display: 'flex',
-      alignItems: 'center'
+      alignItems: 'center',
+      justify: 'center',
+      padding: '2px'
     },
     chatWindow: {
-      width: '70%',
+      width: '100%',
       height: '300px',
-      padding: '20px'
+      padding: '20px',
     },
     chatBox: {
       width: '85%'
@@ -45,20 +49,19 @@ export default function Dashboard(){
     
     return (
       <div>
+        <Grid container justify="center">
         <Paper className={classes.root}>
-        <Typography variant="h4" component="h4" >
-          채팅APP
-        </Typography>
-        <Typography variant="h5" component="h5">
-          {activeTopic}
+        <Grid item xs={12}>
+        <Typography variant="h4" component="h4" align="center">
+          인공지능채팅APP
         </Typography>
         <div className={classes.flex}>
             <div className={classes.chatWindow}>
                 {
                   allChats[activeTopic].map((chat, i)=>(
                     <div className={classes.flex} key={i}>
-                      <Chip avatar={<Avatar alt="Natacha" src={dog} />} variant="outlined" label="비전"/> 
-                       <Typography variant='body1' gutterBottom>{chat.msg}</Typography>
+                      <Chip avatar={<Avatar alt="비전" src={dog} />} variant="outlined" size="small" label="비전"/> 
+                       <Typography style={{fontSize:'15px'}}>{chat.msg}</Typography>
                       </div>
                   ))
                 }
@@ -76,7 +79,9 @@ export default function Dashboard(){
         전송
         </Button>
         </div>
+        </Grid>
       </Paper>
+      </Grid>
       </div>
     );
 }
